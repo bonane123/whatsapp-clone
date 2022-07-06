@@ -5,6 +5,7 @@ import { FiMoreVertical } from "react-icons/fi";
 import { AiOutlineSearch } from "react-icons/ai";
 import React from "react";
 import "./Sidebar.css";
+import SidebarChat from "./SidebarChat";
 
 function Sidebar() {
   return (
@@ -25,11 +26,18 @@ function Sidebar() {
       </div>
       <div className="sidebar__search">
         <div className="sidebar__searchContainer">
-          <AiOutlineSearch />
+          <AiOutlineSearch className="search__icon" />
           <input type="text" placeholder="Search or start new chat" />
         </div>
       </div>
-      <div className="sidebar__chats"></div>
+      <div className="sidebar__chats">
+        <SidebarChat addNewChat />
+        <SidebarChat />
+        <SidebarChat />
+        <SidebarChat />
+        <SidebarChat />
+        <SidebarChat />
+      </div>
     </div>
   );
 }
