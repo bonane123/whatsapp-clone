@@ -8,11 +8,13 @@ import { AiOutlineSearch } from "react-icons/ai";
 import React, { useEffect, useState } from "react";
 import "./Sidebar.css";
 import SidebarChat from "./SidebarChat";
+import { useStateValue } from "./StateProvider";
 
 function Sidebar() {
   const colRef = collection(db, "rooms");
   const getData = getDocs(colRef);
   const [rooms, setRooms] = useState([]);
+  const [{ user }, dispatch] = useStateValue();
   useEffect(() => {
     getData.then((snapshot) => {
       setRooms(
@@ -28,7 +30,7 @@ function Sidebar() {
   return (
     <div className="sidebar">
       <div className="sidebar__header">
-        <Avatar />
+        <Avatar src={user?.photoURL} />
         <div className="sidebar__headerRight">
           <IconButton>
             <MdDonutLarge />
